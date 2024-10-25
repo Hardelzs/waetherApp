@@ -18,6 +18,22 @@ import { TbTemperature } from "react-icons/tb";
 import { FaWater } from "react-icons/fa";
 
 const Weather = () => {
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  useEffect(() => {
+    const intervalid = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000);
+
+    return () => clearInterval(intervalid)
+
+  }, [])
+
+  const dayOfWeek = currentDate.toLocaleString('en-US',
+
+    { weekday: 'long' }); 
+  
   const inputRef = useRef();
 
   const [weatherData, setWeatherData] = useState(false);
@@ -125,7 +141,7 @@ const Weather = () => {
 
               <div className="flex mt-6 gap-10">
                 <div className=" w-40 items-center grid place-content-center text-center text-black font-mono font-medium rounded-3xl h-32 shadow-2xl">
-                  <h1>Wednesday</h1>
+                  <h1>{dayOfWeek}</h1>
                   <IoIosSunny className="text-7xl  text-yellow-300" />
                   <h2 className="text-2xl">21°c</h2>
                 </div>
