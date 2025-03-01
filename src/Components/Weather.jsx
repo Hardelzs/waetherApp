@@ -53,6 +53,7 @@ const Weather = () => {
     "10d": <FaCloudSunRain />,
     "13d": <FaRegSnowflake />,
     "13n": <FaRegSnowflake />,
+    "50n": <FaRegSnowflake />,
   };
 
   const search = async (city) => {
